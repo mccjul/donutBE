@@ -13,7 +13,7 @@ import { ProfileModule } from "./profile/profile.module";
     TypeOrmModule.forRoot({
       type: "mongodb",
       database: "donut",
-      host: "mongodb",
+      host: "localhost", // for docker mongodb
       entities: [__dirname + "/../**/*.entity{.ts,.js}"],
       synchronize: true
     }),
