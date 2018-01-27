@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   backend:
     build: .
@@ -7,16 +7,11 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-    environment:
-      - DATABASE_PORT=${DATABASE_PORT}
-      - DATABASE_USER=${DATABASE_USER}
-      - DATABASE_PASS=${DATABASE_PASS}
-      - DATABASE_NAME=${DATABASE_NAME}
-    depends_on:
+    links:
       - mongodb
       
   mongodb:
-    image: mongo:latest
+    image: "mongo:3.4.1"
     container_name: "mongodb"
     environment:
       - MONGO_DATA_DIR=/data/db
@@ -24,5 +19,5 @@ services:
     volumes:
       - ./data/db:/data/db
     ports:
-        - ${DATABASE_PORT}
+        - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null

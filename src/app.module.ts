@@ -12,9 +12,8 @@ import { ProfileModule } from "./profile/profile.module";
   imports: [
     TypeOrmModule.forRoot({
       type: "mongodb",
-      host: "localhost",
-      port: 27017,
-      database: "test",
+      database: "donut",
+      host: "mongodb",
       entities: [__dirname + "/../**/*.entity{.ts,.js}"],
       synchronize: true
     }),

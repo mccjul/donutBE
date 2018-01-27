@@ -2,7 +2,7 @@
   "type": "mongodb",
   "host": "localhost",
   "port": 27017,
-  "database": "test",
+  "database": "donut",
   "entities": ["src/**/**.entity{.ts,.js}"],
   "synchronize": true
 }
