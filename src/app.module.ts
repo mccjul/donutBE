@@ -1,8 +1,8 @@
-import { Module } from "@nestjs/common";
+import { Module, Logger } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
 import { AppController } from "./app.controller";
-import { ExampleModule } from "./example/example.module";
+
 import { CharityModule } from "./charity/charity.module";
 import { DonationModule } from "./donation/donation.module";
 import { ItemModule } from "./item/item.module";
@@ -12,15 +12,16 @@ import { ProfileModule } from "./profile/profile.module";
   imports: [
     TypeOrmModule.forRoot({
       type: "mongodb",
-      database: "donut",
+      database: "local",
       host: "localhost", // for docker mongodb
       entities: [__dirname + "/../**/*.entity{.ts,.js}"],
       synchronize: true
     }),
-    CharityModule,
+    // CharityModule,
     DonationModule,
-    ItemModule,
-    ProfileModule /*, ExampleModule */
+    // ItemModule,
+    // ProfileModule
+    Logger
   ],
   controllers: [AppController],
   components: []

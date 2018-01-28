@@ -4,7 +4,7 @@ import { Entity, Column, ObjectIdColumn, ObjectID, Timestamp } from "typeorm";
 export class Donation {
   @ObjectIdColumn() id: ObjectID;
 
-  @Column() charityid: string;
+  @Column() charityid: ObjectID;
 
   @Column() timestamp: Timestamp;
 
